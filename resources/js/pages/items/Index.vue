@@ -45,7 +45,7 @@ defineProps<{
                                 <TableHead>Type</TableHead>
                                 <TableHead>Description</TableHead>
                                 <TableHead>Active</TableHead>
-                                <TableHead class="text-right"> Actions </TableHead>
+                                <TableHead>Actions</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -56,8 +56,9 @@ defineProps<{
                                 <TableCell>{{ item.content_type }}</TableCell>
                                 <TableCell>{{ item.description }}</TableCell>
                                 <TableCell>{{ item.active ? 'Active' : 'Inactive' }}</TableCell>
-                                <TableCell class="text-right">
+                                <TableCell class="w-40 px-0">
                                     <Button :as="Link" variant="link" :href="route('admin.items.edit', item.id)"> Edit </Button>
+                                    <Button :as="Link" variant="link" :href="route('admin.items.delete', item.id)"> Delete </Button>
                                 </TableCell>
                             </TableRow>
                         </TableBody>

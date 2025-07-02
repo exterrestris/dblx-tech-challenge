@@ -58,6 +58,13 @@ class ItemsController extends Controller
         return redirect()->route('admin.items.index')->with('message', 'Successfully Created Item');
     }
 
+    public function delete(Item $item): RedirectResponse
+    {
+        $item->delete();
+
+        return redirect()->route('admin.items.index')->with('message', 'Successfully Deleted Item');
+    }
+
     public function edit(Item $item): Response
     {
         return Inertia::render('items/Edit', [

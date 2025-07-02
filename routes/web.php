@@ -33,6 +33,10 @@ Route::get('admin/items/{item}/edit', [ItemsController::class, 'edit'])
     ->name('admin.items.edit')
     ->middleware(['auth', 'verified', 'can:update,item']);
 
+Route::get('admin/items/{item}/delete', [ItemsController::class, 'delete'])
+    ->name('admin.items.delete')
+    ->middleware(['auth', 'verified', 'can:update,item']);
+
 Route::patch('admin/items/{item}', [ItemsController::class, 'update'])
     ->middleware(['auth', 'verified', 'can:update,item']);
 
