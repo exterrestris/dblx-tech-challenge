@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { SearchInput } from "@/components/ui/search";
 import AppLayout from '@/layouts/AppLayout.vue';
 import type { BreadcrumbItem } from '@/types';
 import { Head, Link } from '@inertiajs/vue3';
@@ -32,6 +33,8 @@ defineProps<{
                     <h3 class="text-2xl">Items</h3>
                     <Button :as="Link" :href="route('admin.items.create')">Create Item</Button>
                 </div>
+
+                <SearchInput route-name="admin.items.index" />
 
                 <div class="mt-8 flex flex-col">
                     <Table>

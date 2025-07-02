@@ -8,15 +8,27 @@ use App\Models\Info;
 use App\Models\Item;
 use App\Models\Weblink;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class ItemsController extends Controller
 {
-    public function index(): Response
+    public function index(Request $request): Response
     {
+        $search = $request->search;
+
+        $items = Item::query()
+            ->when($search,
+                fn ($query) => $query->where('name', 'LIKE', '%'.$search.'%')
+                    ->orWhere('description', 'LIKE', '%'.$search.'%')
+            )
+            ->oldest()
+            ->get();
+
         return Inertia::render('items/Index', [
-            'items' => Item::query()->oldest()->limit(10)->get(),
+            'items' => $items,
+            'search' => $search,
         ]);
     }
 
