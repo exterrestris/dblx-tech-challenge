@@ -37,7 +37,7 @@ class ItemsController extends Controller
         return Inertia::render('items/Create', []);
     }
 
-    public function store()
+    public function store(): RedirectResponse
     {
         $type = match(request()->input('content_type')) {
             'info' => new Info([
