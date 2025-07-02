@@ -29,12 +29,13 @@ defineProps<{
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <div class="flex justify-between">
+                <div class="flex justify-between items-center">
                     <h3 class="text-2xl">Items</h3>
+                    <SearchInput route-name="admin.items.index" />
+                </div>
+                <div class="flex justify-end py-4">
                     <Button :as="Link" :href="route('admin.items.create')">Create Item</Button>
                 </div>
-
-                <SearchInput route-name="admin.items.index" />
 
                 <div class="mt-8 flex flex-col">
                     <Table>

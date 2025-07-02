@@ -32,7 +32,7 @@ const searchMethod = debounce(() => {
 </script>
 
 <template>
-    <div class="w-1/2 bg-white px-4 dark:bg-gray-800">
+    <div class="w-1/4 bg-white dark:bg-gray-800">
         <label for="search" class="hidden">Search</label>
         <input
             id="search"
