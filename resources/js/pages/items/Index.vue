@@ -39,6 +39,7 @@ defineProps<{
                             <TableRow>
                                 <TableHead>Name</TableHead>
                                 <TableHead>Type</TableHead>
+                                <TableHead>Description</TableHead>
                                 <TableHead>Active</TableHead>
                                 <TableHead class="text-right"> Actions </TableHead>
                             </TableRow>
@@ -49,6 +50,7 @@ defineProps<{
                                     {{ item.name }}
                                 </TableCell>
                                 <TableCell>{{ item.content_type }}</TableCell>
+                                <TableCell>{{ item.description }}</TableCell>
                                 <TableCell>{{ item.active ? 'Active' : 'Inactive' }}</TableCell>
                                 <TableCell class="text-right">
                                     <Button :as="Link" variant="link" :href="route('admin.items.edit', item.id)"> Edit </Button>
